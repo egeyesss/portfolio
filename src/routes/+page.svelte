@@ -6,7 +6,6 @@
 	import FeaturedProject from '$lib/components/FeaturedProject.svelte';
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 	import Skills from '$lib/components/Skills.svelte';
-	import Hobbies from '$lib/components/Hobbies.svelte';
 	import Contact from '$lib/components/Contact.svelte';
 	import { contact, featured, projects } from '$lib/data/site';
 </script>
@@ -58,7 +57,6 @@
 		</section>
 
 		<Skills />
-		<Hobbies />
 		<Contact />
 	</main>
 </div>

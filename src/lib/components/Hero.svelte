@@ -24,7 +24,7 @@
 	<div class="mx-auto grid w-full max-w-6xl items-center gap-12 md:grid-cols-[1.15fr_0.85fr]">
 		<div class="text-center md:text-left">
 			<p data-hero-line class="mb-4 font-display text-sm tracking-[0.2em] text-dim uppercase">
-				Full-Stack Developer · 📍 Toronto, Canada
+				Full-Stack Developer · 📍 Toronto
 			</p>
 
 			<h1
@@ -38,6 +38,11 @@
 				4th-year Software Engineering student at York University. I build and ship full-stack
 				products — most recently a daily puzzle game with
 				<span class="font-semibold text-fog">500+ players</span>.
+			</p>
+
+			<p data-hero-line class="mx-auto mt-4 max-w-xl text-sm text-dim sm:text-base md:mx-0">
+				When the laptop closes I'm usually traveling, backpacking, or out on a trail — or mid-rally
+				in soccer, badminton, or up a climbing wall. Quiet nights are for gaming with friends.
 			</p>
 
 			<div class="mt-10 flex flex-wrap items-center justify-center gap-4 md:justify-start">

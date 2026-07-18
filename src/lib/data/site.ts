@@ -108,16 +108,6 @@ export const skillGroups: { label: string; items: string[] }[] = [
 	}
 ];
 
-export const hobbies: { emoji: string; label: string }[] = [
-	{ emoji: '🌍', label: 'Traveling' },
-	{ emoji: '🎒', label: 'Backpacking' },
-	{ emoji: '⚽', label: 'Soccer' },
-	{ emoji: '🏸', label: 'Badminton' },
-	{ emoji: '🧗', label: 'Rock climbing' },
-	{ emoji: '🥾', label: 'Hiking' },
-	{ emoji: '🎮', label: 'Gaming with friends' }
-];
-
 // Cycled in the hero photo frame, in order
 export const heroPhotos = [
 	'/photos/ege-1.jpg',
