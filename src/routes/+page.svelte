@@ -31,11 +31,11 @@
 		<Hero />
 
 		<section id="projects" class="mx-auto max-w-6xl scroll-mt-20 px-4 py-24 sm:px-6">
-			<SectionHeading index="01" title="Projects" />
+			<SectionHeading title="Projects" />
 
 			<div class="space-y-8">
-				<FeaturedProject project={featured[0]} badge="FEATURED — LIVE" />
-				<FeaturedProject project={featured[1]} badge="FEATURED — THE ENGINE" />
+				<FeaturedProject project={featured[0]} badge="Featured · Live" />
+				<FeaturedProject project={featured[1]} badge="Featured · Open source" />
 			</div>
 
 			<div class="mt-8 grid gap-6 lg:grid-cols-3">

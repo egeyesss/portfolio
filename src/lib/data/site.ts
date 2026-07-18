@@ -120,6 +120,16 @@ export const skillGroups: { label: string; items: string[] }[] = [
 	}
 ];
 
+// Cycled in the hero photo frame, in order
+export const heroPhotos = [
+	'/photos/ege-1.jpg',
+	'/photos/ege-2.jpg',
+	'/photos/ege-3.jpg',
+	'/photos/ege-4.jpg',
+	'/photos/ege-5.jpg',
+	'/photos/ege-6.jpg'
+];
+
 export const contact = {
 	email: 'egeyesilyurtca@gmail.com',
 	github: 'https://github.com/egeyesss',

@@ -42,18 +42,6 @@ body {
 	color: var(--color-ink);
 }
 
-/* Panel with clipped corners — the recurring cyberpunk card shape */
-.clip-panel {
-	clip-path: polygon(
-		0 0,
-		calc(100% - 18px) 0,
-		100% 18px,
-		100% 100%,
-		18px 100%,
-		0 calc(100% - 18px)
-	);
-}
-
 /* Faint blueprint grid used behind sections */
 .bg-grid {
 	background-image:
