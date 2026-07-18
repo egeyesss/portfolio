@@ -1,3 +1,5 @@
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { contact, featured, projects, skillGroups } from './site';
 
@@ -23,6 +25,14 @@ describe('site data', () => {
 		links.push(contact.github, contact.linkedin);
 		for (const href of links) {
 			expect(href).toMatch(/^https:\/\//);
+		}
+	});
+
+	it('references only images that exist in static/', () => {
+		for (const project of allProjects) {
+			if (project.image) {
+				expect(existsSync(join(process.cwd(), 'static', project.image)), project.image).toBe(true);
+			}
 		}
 	});
 

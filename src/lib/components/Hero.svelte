@@ -23,7 +23,6 @@
 <section class="bg-grid relative flex min-h-svh items-center px-4 pt-24 pb-16 sm:px-6">
 	<div class="mx-auto grid w-full max-w-6xl items-center gap-12 md:grid-cols-[1.15fr_0.85fr]">
 		<div class="text-center md:text-left">
-
 			<h1
 				data-hero-line
 				class="font-display text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl"
@@ -31,7 +30,7 @@
 				Ege <span class="text-volt">Yesilyurt</span>
 			</h1>
 
-			<p data-hero-line class="mb-4 mt-4 font-display text-sm tracking-[0.2em] text-dim uppercase">
+			<p data-hero-line class="mt-4 mb-4 font-display text-sm tracking-[0.2em] text-dim uppercase">
 				Full-Stack Developer · 📍 Toronto
 			</p>
 
@@ -42,9 +41,8 @@
 			</p>
 
 			<p data-hero-line class="mx-auto mt-4 max-w-xl text-sm text-dim sm:text-base md:mx-0">
-				Outside of coding: I like traveling, backpacking, or playing sports like 
-				soccer, badminton, or bouldering. I love hiking and being in the nature.
-				I also like gaming with friends.
+				Outside of coding: I like traveling, backpacking, or playing sports like soccer, badminton,
+				or bouldering. I love hiking and being in the nature. I also like gaming with friends.
 			</p>
 
 			<div class="mt-10 flex flex-wrap items-center justify-center gap-4 md:justify-start">

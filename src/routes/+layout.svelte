@@ -4,7 +4,7 @@
 	import '@fontsource/space-grotesk/400.css';
 	import '@fontsource/space-grotesk/600.css';
 	import './layout.css';
-	import favicon from '$lib/assets/favicon.svg';
+	import favicon from '$lib/assets/favicon.png';
 
 	let { children } = $props();
 </script>

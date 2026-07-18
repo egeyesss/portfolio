@@ -10,6 +10,8 @@ export interface Project {
 	tech: string[];
 	links: ProjectLink[];
 	year: string;
+	image?: string;
+	imageAlt?: string;
 }
 
 /**
@@ -30,7 +32,9 @@ export const featured: Project[] = [
 			{ label: 'Play it', href: 'https://zebra9.xyz' },
 			{ label: 'Source', href: 'https://github.com/egeyesss/zebra' }
 		],
-		year: '2026'
+		year: '2026',
+		image: '/projects/z9bra.jpg',
+		imageAlt: 'z9bra landing page with the daily logic grid'
 	},
 	{
 		name: 'Puzzle Generator',
@@ -42,7 +46,9 @@ export const featured: Project[] = [
 		],
 		tech: ['Python 3.12', 'OR-Tools CP-SAT', 'Pydantic v2', 'pytest', 'Hypothesis', 'mypy'],
 		links: [{ label: 'Source', href: 'https://github.com/egeyesss/csp-generator' }],
-		year: '2026'
+		year: '2026',
+		image: '/projects/csp-generator.png',
+		imageAlt: 'csp-generator CLI generating and exporting a 5×5 logic puzzle'
 	}
 ];
 
@@ -56,8 +62,10 @@ export const projects: Project[] = [
 			'Repository-pattern data layer, 40+ Django unit tests, fully containerized.'
 		],
 		tech: ['Next.js', 'TypeScript', 'Django REST', 'MySQL', 'Docker'],
-		links: [{ label: 'Source', href: 'https://github.com/egeyesss/group2-fitiva' }],
-		year: '2026'
+		links: [{ label: 'Source', href: 'https://github.com/hvpham-yorku/group2-fitiva' }],
+		year: '2026',
+		image: '/projects/fitiva.jpg',
+		imageAlt: 'FITIVA workout planner landing page'
 	},
 	{
 		name: 'BundesPredict',
@@ -72,7 +80,9 @@ export const projects: Project[] = [
 			{ label: 'Live', href: 'https://bundespredict.vercel.app' },
 			{ label: 'Source', href: 'https://github.com/egeyesss/BundesPredict' }
 		],
-		year: '2026'
+		year: '2026',
+		image: '/projects/bundespredict.png',
+		imageAlt: 'BundesPredict showing baseline vs adjusted odds with audited adjustment chips'
 	},
 	{
 		name: 'Spocity',
@@ -87,7 +97,9 @@ export const projects: Project[] = [
 			{ label: 'Live', href: 'https://spocity-smoky.vercel.app' },
 			{ label: 'Source', href: 'https://github.com/egeyesss/spocity' }
 		],
-		year: '2026'
+		year: '2026',
+		image: '/projects/spocity.jpg',
+		imageAlt: 'Spocity landing page with a 3D voxel city built from listening history'
 	}
 ];
 

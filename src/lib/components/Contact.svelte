@@ -12,8 +12,8 @@
 			Let's <span class="text-volt">talk</span>.
 		</p>
 		<p class="mt-4 max-w-xl text-dim">
-			Based in Toronto. Looking for internships/new-grad software engineering roles. If you're hiring, or just
-			want to argue about logic puzzles, my inbox is open.
+			Based in Toronto. Looking for internships/new-grad software engineering roles. If you're
+			hiring, or just want to argue about logic puzzles, my inbox is open.
 		</p>
 
 		<div class="mt-8 flex flex-wrap gap-x-8 gap-y-4 font-display text-sm font-semibold">
