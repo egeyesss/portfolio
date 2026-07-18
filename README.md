@@ -1,42 +1,42 @@
-# sv
+# Portfolio — egeyesilyurt
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Personal portfolio site. Single-page, cyberpunk-styled (volt yellow on matte black), fully static.
 
-## Creating a project
+**Stack:** SvelteKit (Svelte 5) · TypeScript · Tailwind CSS v4 · GSAP · Vercel
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Structure
 
-```sh
-# create a new project
-npx sv create my-app
+```
+src/
+├── lib/
+│   ├── actions/reveal.ts      # GSAP ScrollTrigger entrance animation (Svelte action)
+│   ├── components/            # Header, Hero, FeaturedProject, ProjectCard, Skills, Contact
+│   └── data/site.ts           # All page content — projects, skills, contact links
+└── routes/
+    ├── +page.svelte           # Single page composing every section
+    ├── +layout.svelte         # Fonts + global CSS
+    └── layout.css             # Tailwind theme tokens (palette, fonts) + cyberpunk utilities
 ```
 
-To recreate this project with the same configuration:
+All copy lives in `src/lib/data/site.ts` — edit projects/skills there, never in components.
+
+## Development
 
 ```sh
-# recreate this project
-npx sv@0.16.3 create --template minimal --types ts --add prettier eslint vitest="usages:unit" tailwindcss="plugins:none" sveltekit-adapter="adapter:vercel" --install npm .
+npm install
+npm run dev        # dev server
+npm run check      # svelte-check (types)
+npm run lint       # prettier + eslint
+npm test           # vitest — validates site data integrity
+npm run build      # production build (prerendered, adapter-vercel)
 ```
 
-## Developing
+## Logo
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+The header renders a text wordmark until a graffiti logo file exists at
+`static/logo.png` — drop the file in and it swaps automatically.
 
-```sh
-npm run dev
+## Deploying
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Pushed to Vercel via GitHub integration — `main` deploys to production,
+branches get preview URLs. No environment variables needed.

@@ -1,1 +1,78 @@
 @import 'tailwindcss';
+
+@theme {
+	/* Cyberpunk palette — volt yellow is the one loud accent, blood red is rationed */
+	--color-volt: #f3e600;
+	--color-blood: #ff1f40;
+	--color-ink: #0a0a0b;
+	--color-panel: #131316;
+	--color-edge: #26262b;
+	--color-fog: #e8e8e4;
+	--color-dim: #9b9b94;
+
+	--font-display: 'Chakra Petch', ui-sans-serif, system-ui, sans-serif;
+	--font-body: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+	background-color: var(--color-ink);
+	scroll-padding-top: 5.5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		scroll-behavior: smooth;
+	}
+}
+
+body {
+	font-family: var(--font-body);
+	color: var(--color-fog);
+	background-color: var(--color-ink);
+	/* faint sheen so the black reads matte, not flat */
+	background-image: radial-gradient(
+		ellipse 80% 50% at 50% -10%,
+		rgb(243 230 0 / 0.06),
+		transparent 70%
+	);
+}
+
+::selection {
+	background: var(--color-volt);
+	color: var(--color-ink);
+}
+
+/* Panel with clipped corners — the recurring cyberpunk card shape */
+.clip-panel {
+	clip-path: polygon(
+		0 0,
+		calc(100% - 18px) 0,
+		100% 18px,
+		100% 100%,
+		18px 100%,
+		0 calc(100% - 18px)
+	);
+}
+
+/* Faint blueprint grid used behind sections */
+.bg-grid {
+	background-image:
+		linear-gradient(rgb(232 232 228 / 0.04) 1px, transparent 1px),
+		linear-gradient(90deg, rgb(232 232 228 / 0.04) 1px, transparent 1px);
+	background-size: 48px 48px;
+}
+
+/* Glitch hover: offset volt/blood shadows, one of the few places red appears */
+.glitch-hover {
+	transition: text-shadow 120ms ease;
+}
+.glitch-hover:hover {
+	text-shadow:
+		2px 0 var(--color-blood),
+		-2px 0 var(--color-volt);
+}
+@media (prefers-reduced-motion: reduce) {
+	.glitch-hover:hover {
+		text-shadow: none;
+	}
+}

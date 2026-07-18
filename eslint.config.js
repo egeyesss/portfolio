@@ -34,8 +34,10 @@ export default defineConfig(
 		}
 	},
 	{
-		// Override or add rule settings here, such as:
-		// 'svelte/button-has-type': 'error'
-		rules: {}
+		rules: {
+			// Single-page site: every link is an anchor, a static asset
+			// (/resume.pdf), mailto, or external — none go through the router.
+			'svelte/no-navigation-without-resolve': 'off'
+		}
 	}
 );
