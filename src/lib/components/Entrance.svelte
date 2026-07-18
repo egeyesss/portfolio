@@ -2,8 +2,9 @@
 	import { entrance } from '$lib/state/entrance.svelte';
 
 	// a spray can paints the logo onto a dark window, then the window slides
-	// up to reveal the page. Timing phases match the original 4s default.
-	const DURATION = 4;
+	// up to reveal the page. Slightly shorter than the original 4s default —
+	// recruiters give a portfolio well under a minute total.
+	const DURATION = 3.4;
 	const INTRO_END = 0.45;
 	const PAINT_END = DURATION - 0.95;
 	const SLIDE_START = DURATION - 0.45;
@@ -40,8 +41,11 @@
 		document.body.style.overflow = 'hidden';
 
 		// Spray-hiss: looped bandpassed noise, gain driven from the rAF loop.
-		// AudioContext starts suspended until a user gesture — that's fine,
-		// the skip/resume listeners double as the unlock.
+		// Browsers keep the AudioContext suspended until the user has
+		// interacted with the page, so: try to resume immediately (works on
+		// revisits once the browser trusts the origin), and also unlock on
+		// any gesture. A silent first-ever visit is a browser guarantee we
+		// can't code around without gating the page behind a click.
 		let ctx: AudioContext | undefined;
 		let hissGain: GainNode | undefined;
 		try {
@@ -69,8 +73,14 @@
 			src.start();
 			hissGain = gain;
 			if (ctx.state === 'suspended') {
-				const resume = () => ctx?.resume();
-				window.addEventListener('pointerdown', resume, { once: true });
+				void ctx.resume();
+				const resume = () => {
+					void ctx?.resume();
+					window.removeEventListener('pointerdown', resume);
+					window.removeEventListener('keydown', resume);
+				};
+				window.addEventListener('pointerdown', resume);
+				window.addEventListener('keydown', resume);
 			}
 		} catch {
 			// no audio is fine
@@ -166,7 +176,7 @@
 			}
 
 			if (hissGain) {
-				const target = spraying ? 0.14 * (0.55 + 0.45 * Math.abs(Math.sin(e * 20))) : 0;
+				const target = spraying ? 0.22 * (0.55 + 0.45 * Math.abs(Math.sin(e * 20))) : 0;
 				hissGain.gain.value += (target - hissGain.gain.value) * 0.25;
 			}
 
@@ -257,6 +267,13 @@
 			class="pointer-events-none absolute top-0 left-0 will-change-transform"
 			style="width:30vmin; transform:translate(-200px,-200px); filter:drop-shadow(0 18px 24px rgba(0,0,0,0.55));"
 		/>
+
+		<!-- recruiters shouldn't have to guess they can skip -->
+		<p
+			class="skip-hint pointer-events-none absolute bottom-8 left-1/2 -translate-x-1/2 font-display text-xs tracking-[0.2em] text-dim uppercase"
+		>
+			Click or press Esc to skip
+		</p>
 	</div>
 	<noscript>
 		<style>
@@ -292,5 +309,17 @@
 		background: radial-gradient(circle, rgba(243, 230, 0, 0.5), transparent 70%);
 		mix-blend-mode: screen;
 		opacity: 0;
+	}
+	@keyframes hint-in {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 0.8;
+		}
+	}
+	.skip-hint {
+		opacity: 0;
+		animation: hint-in 0.5s ease-out 0.9s forwards;
 	}
 </style>

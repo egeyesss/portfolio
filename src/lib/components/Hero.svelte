@@ -1,6 +1,7 @@
 <script lang="ts">
 	import gsap from 'gsap';
 	import { entrance } from '$lib/state/entrance.svelte';
+	import { contact } from '$lib/data/site';
 	import PhotoCycler from './PhotoCycler.svelte';
 
 	$effect(() => {
@@ -23,7 +24,7 @@
 	<div class="mx-auto grid w-full max-w-6xl items-center gap-12 md:grid-cols-[1.15fr_0.85fr]">
 		<div class="text-center md:text-left">
 			<p data-hero-line class="mb-4 font-display text-sm tracking-[0.2em] text-dim uppercase">
-				Software Engineer · Toronto
+				Full-Stack Developer · 📍 Toronto, Canada
 			</p>
 
 			<h1
@@ -55,6 +56,32 @@
 					class="rounded-md border border-edge px-7 py-3 font-display text-sm text-fog transition-colors hover:border-volt hover:text-volt"
 				>
 					Resume
+				</a>
+			</div>
+
+			<!-- everything a recruiter needs, no scrolling required -->
+			<div
+				data-hero-cta
+				class="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-display text-sm text-dim md:justify-start"
+			>
+				<a
+					href={contact.github}
+					target="_blank"
+					rel="noopener"
+					class="transition-colors hover:text-volt"
+				>
+					GitHub ↗
+				</a>
+				<a
+					href={contact.linkedin}
+					target="_blank"
+					rel="noopener"
+					class="transition-colors hover:text-volt"
+				>
+					LinkedIn ↗
+				</a>
+				<a href="mailto:{contact.email}" class="transition-colors hover:text-volt">
+					{contact.email}
 				</a>
 			</div>
 		</div>

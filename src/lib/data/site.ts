@@ -21,9 +21,9 @@ export const featured: Project[] = [
 		name: 'z9bra',
 		tagline: 'Daily logic-puzzle game — live at zebra9.xyz',
 		highlights: [
-			'Wordle-style daily puzzle that scaled to 500+ unique players, with deterministic date-seeded selection so everyone gets the same grid.',
-			'Commit-based solving engine (no undo, overwrite-count scoring) and server-rendered share cards via Satori.',
-			'Optional account sync for cross-device streaks with a localStorage fallback; automated preview + production deploys on Vercel.'
+			'Wordle-style daily puzzle with 500+ unique players — everyone gets the same date-seeded grid.',
+			'Commit-based solving engine with overwrite scoring and server-rendered share cards.',
+			'Optional account sync for cross-device streaks; automated deploys on Vercel.'
 		],
 		tech: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS', 'Satori', 'Vitest', 'Vercel'],
 		links: [
@@ -36,9 +36,9 @@ export const featured: Project[] = [
 		name: 'Puzzle Generator',
 		tagline: 'The constraint-solver engine behind z9bra',
 		highlights: [
-			'Research-grade Python engine using Google OR-Tools CP-SAT as a uniqueness oracle — every exported puzzle is provably single-solution.',
-			'Custom propagation tracer measures human deduction depth and branching factor to score and tune difficulty.',
-			'7-type clue system cross-checked between the CP-SAT translation and an independent pure-Python implementation; strict TDD, property-based tests, mypy-strict clean.'
+			'Python engine using OR-Tools CP-SAT as a uniqueness oracle — every puzzle is provably single-solution.',
+			'Custom propagation tracer measures human deduction depth to score and tune difficulty.',
+			'Built with strict TDD: property-based tests, dual-implementation cross-checks, mypy-strict clean.'
 		],
 		tech: ['Python 3.12', 'OR-Tools CP-SAT', 'Pydantic v2', 'pytest', 'Hypothesis', 'mypy'],
 		links: [{ label: 'Source', href: 'https://github.com/egeyesss/csp-generator' }],
@@ -51,9 +51,9 @@ export const projects: Project[] = [
 		name: 'FITIVA',
 		tagline: 'Workout training planner web app',
 		highlights: [
-			'Led a 6-person team as project lead, managing sprints and delegation through Jira.',
-			'Full-stack planner: user/trainer auth, fitness profiles, program scheduling, and workout recommendations.',
-			'Repository-pattern data layer with a stub/real DB swap for fast isolated tests; 40+ Django unit tests, fully containerized.'
+			'Led a 6-person team as project lead — sprint planning and delegation in Jira.',
+			'User/trainer auth, fitness profiles, program scheduling, and workout recommendations.',
+			'Repository-pattern data layer, 40+ Django unit tests, fully containerized.'
 		],
 		tech: ['Next.js', 'TypeScript', 'Django REST', 'MySQL', 'Docker'],
 		links: [{ label: 'Source', href: 'https://github.com/egeyesss/group2-fitiva' }],
@@ -63,9 +63,9 @@ export const projects: Project[] = [
 		name: 'BundesPredict',
 		tagline: 'Bundesliga match predictor — live',
 		highlights: [
-			'Dixon–Coles match model with weekly automated retraining via GitHub Actions, serving calibrated win/draw/loss probabilities.',
-			'LLM adjustment layer that only emits bounded, schema-validated tweaks — the deterministic engine owns every number.',
-			'FastAPI + Postgres backend, Next.js frontend; market-value priors scraped from Transfermarkt.'
+			'Dixon–Coles match model, retrained weekly via GitHub Actions.',
+			'LLM layer emits only bounded, validated adjustments — the engine owns every number.',
+			'FastAPI + Postgres backend, Next.js frontend, Transfermarkt market-value priors.'
 		],
 		tech: ['Python', 'FastAPI', 'Next.js', 'PostgreSQL', 'Docker', 'GitHub Actions'],
 		links: [
@@ -78,9 +78,9 @@ export const projects: Project[] = [
 		name: 'Spocity',
 		tagline: 'Your Spotify history as a 3D voxel city — live',
 		highlights: [
-			'Spotify OAuth with on-demand listening-history ingest through Django + Celery background jobs.',
-			'Genre rollup turns your top artists into city districts, rendered as a voxel dusk city in React Three Fiber.',
-			'Public shareable profile pages and a postcard generator; deployed on Vercel + Railway.'
+			'Spotify OAuth with on-demand history ingest via Django + Celery jobs.',
+			'Genre rollup turns your artists into districts of a 3D voxel city in React Three Fiber.',
+			'Shareable public profiles and a postcard generator; deployed on Vercel + Railway.'
 		],
 		tech: ['Next.js', 'React Three Fiber', 'TypeScript', 'Django', 'Celery', 'PostgreSQL'],
 		links: [
@@ -91,38 +91,20 @@ export const projects: Project[] = [
 	}
 ];
 
+// Deliberately short — every item here shows up in the projects above.
+// A recruiter should see a specialist, not a checklist of everything ever touched.
 export const skillGroups: { label: string; items: string[] }[] = [
 	{
 		label: 'Languages',
-		items: ['Python', 'Java', 'TypeScript', 'JavaScript', 'SQL', 'HTML/CSS', 'MATLAB']
+		items: ['TypeScript', 'Python', 'Java', 'SQL']
 	},
 	{
 		label: 'Frameworks & Libraries',
-		items: [
-			'Next.js',
-			'React',
-			'SvelteKit',
-			'Django REST Framework',
-			'Tailwind CSS',
-			'GSAP',
-			'React Three Fiber',
-			'Celery'
-		]
+		items: ['Next.js', 'React', 'SvelteKit', 'Django REST Framework', 'FastAPI', 'Tailwind CSS']
 	},
 	{
 		label: 'Infrastructure & Tools',
-		items: [
-			'Docker',
-			'Kubernetes',
-			'PostgreSQL',
-			'MySQL',
-			'Redis',
-			'Git',
-			'REST APIs',
-			'OAuth 2.0',
-			'Vercel',
-			'Jira'
-		]
+		items: ['PostgreSQL', 'MySQL', 'Docker', 'GitHub Actions', 'Vercel', 'Git']
 	}
 ];
 
