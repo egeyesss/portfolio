@@ -6,8 +6,9 @@
 	import FeaturedProject from '$lib/components/FeaturedProject.svelte';
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 	import Skills from '$lib/components/Skills.svelte';
+	import Hobbies from '$lib/components/Hobbies.svelte';
 	import Contact from '$lib/components/Contact.svelte';
-	import { featured, projects } from '$lib/data/site';
+	import { contact, featured, projects } from '$lib/data/site';
 </script>
 
 <svelte:head>
@@ -43,9 +44,21 @@
 					<ProjectCard {project} delay={i * 0.1} />
 				{/each}
 			</div>
+
+			<div class="mt-10 text-center">
+				<a
+					href={contact.github}
+					target="_blank"
+					rel="noopener"
+					class="inline-block rounded-md border border-edge px-7 py-3 font-display text-sm text-fog transition-colors hover:border-volt hover:text-volt"
+				>
+					See all projects on GitHub ↗
+				</a>
+			</div>
 		</section>
 
 		<Skills />
+		<Hobbies />
 		<Contact />
 	</main>
 </div>

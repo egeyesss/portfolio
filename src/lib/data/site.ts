@@ -60,27 +60,33 @@ export const projects: Project[] = [
 		year: '2026'
 	},
 	{
-		name: 'KickBay',
-		tagline: 'Full-stack e-commerce auction platform',
+		name: 'BundesPredict',
+		tagline: 'Bundesliga match predictor — live',
 		highlights: [
-			'Two auction types with real-time bidding, win history, and a complete payments + receipts flow.',
-			'Django REST APIs with session auth, buyer–seller SMTP notifications, and Google Maps address capture.',
-			'Deployed on a 3-node Kubernetes cluster with multi-region failover, automated MySQL backups, and a GitHub-to-VM CI/CD pipeline.'
+			'Dixon–Coles match model with weekly automated retraining via GitHub Actions, serving calibrated win/draw/loss probabilities.',
+			'LLM adjustment layer that only emits bounded, schema-validated tweaks — the deterministic engine owns every number.',
+			'FastAPI + Postgres backend, Next.js frontend; market-value priors scraped from Transfermarkt.'
 		],
-		tech: ['Next.js', 'TypeScript', 'Django REST', 'MySQL', 'Kubernetes', 'Docker'],
-		links: [{ label: 'Source', href: 'https://github.com/egeyesss/eecs4413_auction' }],
-		year: '2025'
+		tech: ['Python', 'FastAPI', 'Next.js', 'PostgreSQL', 'Docker', 'GitHub Actions'],
+		links: [
+			{ label: 'Live', href: 'https://bundespredict.vercel.app' },
+			{ label: 'Source', href: 'https://github.com/egeyesss/BundesPredict' }
+		],
+		year: '2026'
 	},
 	{
-		name: 'Lab Equipment Reservation',
-		tagline: 'Multi-role JavaFX desktop system',
+		name: 'Spocity',
+		tagline: 'Your Spotify history as a 3D voxel city — live',
 		highlights: [
-			'Booking lifecycle, deposits/payments, and sensor-driven maintenance built on 6+ GoF patterns over MVC + service + DAO.',
-			'Role-based access control across six user roles with admin approval workflows and privilege-escalation guards.',
-			'Three-tier testing: hand-written JUnit, Randoop regression, and PItest mutation testing with JaCoCo coverage.'
+			'Spotify OAuth with on-demand listening-history ingest through Django + Celery background jobs.',
+			'Genre rollup turns your top artists into city districts, rendered as a voxel dusk city in React Three Fiber.',
+			'Public shareable profile pages and a postcard generator; deployed on Vercel + Railway.'
 		],
-		tech: ['Java 17', 'JavaFX', 'Maven', 'JUnit 5', 'PItest'],
-		links: [{ label: 'Source', href: 'https://github.com/egeyesss/eecs3311-reservation' }],
+		tech: ['Next.js', 'React Three Fiber', 'TypeScript', 'Django', 'Celery', 'PostgreSQL'],
+		links: [
+			{ label: 'Live', href: 'https://spocity-smoky.vercel.app' },
+			{ label: 'Source', href: 'https://github.com/egeyesss/spocity' }
+		],
 		year: '2026'
 	}
 ];
@@ -118,6 +124,16 @@ export const skillGroups: { label: string; items: string[] }[] = [
 			'Jira'
 		]
 	}
+];
+
+export const hobbies: { emoji: string; label: string }[] = [
+	{ emoji: '🌍', label: 'Traveling' },
+	{ emoji: '🎒', label: 'Backpacking' },
+	{ emoji: '⚽', label: 'Soccer' },
+	{ emoji: '🏸', label: 'Badminton' },
+	{ emoji: '🧗', label: 'Rock climbing' },
+	{ emoji: '🥾', label: 'Hiking' },
+	{ emoji: '🎮', label: 'Gaming with friends' }
 ];
 
 // Cycled in the hero photo frame, in order

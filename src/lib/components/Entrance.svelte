@@ -8,7 +8,6 @@
 	const PAINT_END = DURATION - 0.95;
 	const SLIDE_START = DURATION - 0.45;
 	const END = DURATION + 0.15;
-	const SESSION_KEY = 'egey-entrance-played';
 
 	let winEl: HTMLDivElement | undefined = $state();
 	let logoEl: HTMLImageElement | undefined = $state();
@@ -24,9 +23,9 @@
 	const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
 
 	$effect(() => {
+		// Plays on every load by design; reduced-motion users still skip it.
 		const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-		const alreadyPlayed = sessionStorage.getItem(SESSION_KEY) === '1';
-		if (reduced || alreadyPlayed || !winEl || !logoEl || !canEl || !dustEl) {
+		if (reduced || !winEl || !logoEl || !canEl || !dustEl) {
 			hidden = true;
 			entrance.done = true;
 			return;
@@ -91,7 +90,6 @@
 		const finish = () => {
 			if (finished) return;
 			finished = true;
-			sessionStorage.setItem(SESSION_KEY, '1');
 			document.body.style.overflow = '';
 			entrance.done = true;
 			hidden = true;

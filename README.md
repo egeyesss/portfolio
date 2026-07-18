@@ -37,8 +37,8 @@ The graffiti logo lives at `static/logo.jpg` (black background — rendered with
 `mix-blend-mode: screen` so the black drops out on dark surfaces).
 
 `Entrance.svelte` is the spray-paint entrance overlay: a spray can paints the logo onto a dark window, then the
-window slides up. It plays once per browser session (sessionStorage), is
-skippable with click/Escape/Enter/Space, and is skipped entirely under
+window slides up. It plays on every page load, is skippable with
+click/Escape/Enter/Space, and is skipped entirely under
 `prefers-reduced-motion`. The hero intro waits on `$lib/state/entrance.svelte.ts`.
 
 ## Deploying
