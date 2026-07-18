@@ -1,12 +1,3 @@
-<script lang="ts">
-	import { browser } from '$app/environment';
-
-	// Drop the graffiti logo at static/logo.png and it replaces the text
-	// wordmark automatically. The img only renders client-side — a
-	// build-time reference to a missing file fails the prerender crawl.
-	let logoLoaded = $state(false);
-</script>
-
 <header class="fixed inset-x-0 top-0 z-50 border-b border-edge bg-ink/85 backdrop-blur-md">
 	<div class="mx-auto grid h-16 max-w-6xl grid-cols-[1fr_auto_1fr] items-center px-4 sm:px-6">
 		<nav class="flex gap-5 font-display text-xs tracking-[0.2em] text-dim sm:gap-8 sm:text-sm">
@@ -15,20 +6,13 @@
 		</nav>
 
 		<a href="#top" aria-label="Back to top" class="justify-self-center">
-			{#if browser}
-				<img
-					src="/logo.png"
-					alt="Ege Y"
-					class="h-10 w-auto"
-					class:hidden={!logoLoaded}
-					onload={() => (logoLoaded = true)}
-				/>
-			{/if}
-			{#if !logoLoaded}
-				<span class="font-display text-xl font-bold tracking-widest text-fog">
-					EGE<span class="text-volt">Y</span>
-				</span>
-			{/if}
+			<!-- JPG on black — screen blend drops the black box against the dark header -->
+			<img
+				src="/logo.jpg"
+				alt="Ege Y"
+				class="h-12 w-12 object-contain"
+				style="mix-blend-mode: screen;"
+			/>
 		</a>
 
 		<nav

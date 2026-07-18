@@ -1,9 +1,13 @@
 <script lang="ts">
 	import gsap from 'gsap';
+	import { entrance } from '$lib/state/entrance.svelte';
 
 	let heroEl: HTMLElement;
 
 	$effect(() => {
+		// Hold the intro until the entrance window starts lifting, so the
+		// hero animates into view as the page is revealed.
+		if (!entrance.done) return;
 		const mm = gsap.matchMedia();
 		mm.add('(prefers-reduced-motion: no-preference)', () => {
 			gsap

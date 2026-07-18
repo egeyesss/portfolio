@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Entrance from '$lib/components/Entrance.svelte';
 	import Header from '$lib/components/Header.svelte';
 	import Hero from '$lib/components/Hero.svelte';
 	import SectionHeading from '$lib/components/SectionHeading.svelte';
@@ -24,6 +25,7 @@
 </svelte:head>
 
 <div id="top">
+	<Entrance />
 	<Header />
 	<main>
 		<Hero />
