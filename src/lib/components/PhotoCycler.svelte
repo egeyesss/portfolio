@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { heroPhotos } from '$lib/data/site';
+	import VoxelFrame from './VoxelFrame.svelte';
 
 	const INTERVAL_MS = 3500;
 	let index = $state(0);
@@ -23,6 +24,7 @@
 			style="opacity: {i === index ? 1 : 0};"
 		/>
 	{/each}
+	<VoxelFrame />
 	<!-- subtle inner ring so photo edges read cleanly on any image -->
 	<div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-white/5 ring-inset"></div>
 </div>
