@@ -36,7 +36,7 @@ export default defineConfig(
 	{
 		rules: {
 			// Single-page site: every link is an anchor, a static asset
-			// (/resume.pdf), mailto, or external — none go through the router.
+			// (/resume.pdf), mailto, or external, so none go through the router.
 			'svelte/no-navigation-without-resolve': 'off'
 		}
 	}

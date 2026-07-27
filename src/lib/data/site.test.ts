@@ -1,7 +1,7 @@
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { contact, featured, projects, skillGroups } from './site';
+import { contact, featured, playlist, projects, skillGroups } from './site';
 
 // The site renders straight from this data, so a bad entry (empty field,
 // http:// link, typo'd href) would ship silently. These tests catch that.
@@ -46,5 +46,19 @@ describe('site data', () => {
 		for (const group of skillGroups) {
 			expect(group.items.length).toBeGreaterThan(0);
 		}
+	});
+});
+
+describe('playlist data', () => {
+	it.each(playlist)('$title has title, artist, and a Spotify id', (track) => {
+		expect(track.title).not.toBe('');
+		expect(track.artist).not.toBe('');
+		// Spotify track ids are 22-char base62 strings.
+		expect(track.spotifyId).toMatch(/^[A-Za-z0-9]{22}$/);
+	});
+
+	it('has no duplicate tracks', () => {
+		const ids = playlist.map((t) => t.spotifyId);
+		expect(new Set(ids).size).toBe(ids.length);
 	});
 });

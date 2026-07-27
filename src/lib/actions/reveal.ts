@@ -10,7 +10,7 @@ export interface RevealOptions {
 
 /**
  * Scroll-triggered entrance animation. Wrapped in gsap.matchMedia so users
- * with prefers-reduced-motion get static, fully visible content — gsap.from
+ * with prefers-reduced-motion get static, fully visible content, since gsap.from
  * never hides the element for them.
  */
 export function reveal(node: HTMLElement, options: RevealOptions = {}) {

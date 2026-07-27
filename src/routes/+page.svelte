@@ -6,17 +6,18 @@
 	import FeaturedProject from '$lib/components/FeaturedProject.svelte';
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 	import Skills from '$lib/components/Skills.svelte';
+	import MusicWidget from '$lib/components/MusicWidget.svelte';
 	import Contact from '$lib/components/Contact.svelte';
 	import { contact, featured, projects } from '$lib/data/site';
 </script>
 
 <svelte:head>
-	<title>Ege Yesilyurt — Software Engineer</title>
+	<title>Ege Yesilyurt · Software Engineer</title>
 	<meta
 		name="description"
 		content="Software engineering student at York University. Builder of z9bra, a daily logic-puzzle game with 500+ players, and the open-source constraint-solver engine behind it."
 	/>
-	<meta property="og:title" content="Ege Yesilyurt — Software Engineer" />
+	<meta property="og:title" content="Ege Yesilyurt · Software Engineer" />
 	<meta
 		property="og:description"
 		content="Full-stack projects: z9bra daily puzzle game, CP-SAT puzzle generator, and more."
@@ -59,4 +60,6 @@
 		<Skills />
 		<Contact />
 	</main>
+
+	<MusicWidget />
 </div>

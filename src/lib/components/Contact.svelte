@@ -48,6 +48,10 @@
 	</div>
 </section>
 
-<footer class="border-t border-edge py-8 text-center font-display text-xs text-dim">
-	© 2026 Ege Yesilyurt · Built with SvelteKit + GSAP
+<footer class="border-t border-edge px-4 py-8 text-center font-display text-xs text-dim sm:px-6">
+	<p>© 2026 Ege Yesilyurt</p>
+	<p class="mt-2 text-dim">
+		Built with SvelteKit + Svelte 5 runes, Tailwind v4, and GSAP · animations respect
+		<code class="text-fog/70">prefers-reduced-motion</code> · deployed on Vercel
+	</p>
 </footer>

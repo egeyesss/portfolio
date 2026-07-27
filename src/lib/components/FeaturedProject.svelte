@@ -18,6 +18,12 @@
 			<h3 class="font-display text-3xl font-bold tracking-tight sm:text-4xl">{project.name}</h3>
 			<p class="mt-2 text-base text-volt sm:text-lg">{project.tagline}</p>
 
+			{#if project.ownership}
+				<p class="mt-5 border-l-2 border-volt/50 pl-4 text-sm text-fog sm:text-base">
+					{project.ownership}
+				</p>
+			{/if}
+
 			<ul class="mt-6 space-y-3 text-sm text-dim sm:text-base">
 				{#each project.highlights as highlight (highlight)}
 					<li class="flex gap-3">

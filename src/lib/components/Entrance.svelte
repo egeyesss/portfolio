@@ -2,13 +2,15 @@
 	import { entrance } from '$lib/state/entrance.svelte';
 
 	// a spray can paints the logo onto a dark window, then the window slides
-	// up to reveal the page. Slightly shorter than the original 4s default —
-	// recruiters give a portfolio well under a minute total.
+	// up to reveal the page. Slightly shorter than the original 4s default,
+	// since recruiters give a portfolio well under a minute total.
 	const DURATION = 3.4;
 	const INTRO_END = 0.45;
 	const PAINT_END = DURATION - 0.95;
 	const SLIDE_START = DURATION - 0.45;
 	const END = DURATION + 0.15;
+	// Peak gain of the spray hiss (~60% as requested).
+	const SPRAY_VOLUME = 0.6;
 
 	let winEl: HTMLDivElement | undefined = $state();
 	let logoEl: HTMLImageElement | undefined = $state();
@@ -41,11 +43,10 @@
 		document.body.style.overflow = 'hidden';
 
 		// Spray-hiss: looped bandpassed noise, gain driven from the rAF loop.
-		// Browsers keep the AudioContext suspended until the user has
-		// interacted with the page, so: try to resume immediately (works on
-		// revisits once the browser trusts the origin), and also unlock on
-		// any gesture. A silent first-ever visit is a browser guarantee we
-		// can't code around without gating the page behind a click.
+		// Browsers keep the AudioContext suspended until the user has interacted
+		// with the page, so try to resume immediately (works on revisits once the
+		// browser trusts the origin) and also unlock on any gesture. A silent
+		// first-ever visit is a browser guarantee we can't code around.
 		let ctx: AudioContext | undefined;
 		let hissGain: GainNode | undefined;
 		try {
@@ -176,7 +177,7 @@
 			}
 
 			if (hissGain) {
-				const target = spraying ? 0.22 * (0.55 + 0.45 * Math.abs(Math.sin(e * 20))) : 0;
+				const target = spraying ? SPRAY_VOLUME * (0.55 + 0.45 * Math.abs(Math.sin(e * 20))) : 0;
 				hissGain.gain.value += (target - hissGain.gain.value) * 0.25;
 			}
 

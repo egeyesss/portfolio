@@ -6,7 +6,7 @@
 		</nav>
 
 		<a href="#top" aria-label="Back to top" class="justify-self-center">
-			<!-- JPG on black — screen blend drops the black box against the dark header -->
+			<!-- the logo JPG has a black background, so screen blend drops it against the dark header -->
 			<img
 				src="/logo.jpg"
 				alt="Ege Y"

@@ -28,6 +28,12 @@
 
 		<p class="text-sm text-volt">{project.tagline}</p>
 
+		{#if project.ownership}
+			<p class="mt-3 border-l-2 border-volt/50 pl-3 text-sm text-fog/90">
+				{project.ownership}
+			</p>
+		{/if}
+
 		<ul class="mt-4 flex-1 space-y-2 text-sm text-dim">
 			{#each project.highlights as highlight (highlight)}
 				<li class="flex gap-2.5">

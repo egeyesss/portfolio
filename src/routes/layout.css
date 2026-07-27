@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 @theme {
-	/* Cyberpunk palette — volt yellow is the one loud accent, blood red is rationed */
+	/* Cyberpunk palette: volt yellow is the one loud accent, blood red is rationed */
 	--color-volt: #f3e600;
 	--color-blood: #ff1f40;
 	--color-ink: #0a0a0b;
