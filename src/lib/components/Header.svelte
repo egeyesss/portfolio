@@ -6,13 +6,7 @@
 		</nav>
 
 		<a href="#top" aria-label="Back to top" class="justify-self-center">
-			<!-- the logo JPG has a black background, so screen blend drops it against the dark header -->
-			<img
-				src="/logo.jpg"
-				alt="Ege Y"
-				class="h-12 w-12 object-contain"
-				style="mix-blend-mode: screen;"
-			/>
+			<img src="/logo.png" alt="Ege Y" class="h-12 w-12 object-contain" />
 		</a>
 
 		<nav

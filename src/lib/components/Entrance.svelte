@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { entrance } from '$lib/state/entrance.svelte';
 
-	// a spray can paints the logo onto a dark window, then the window slides
-	// up to reveal the page. Slightly shorter than the original 4s default,
-	// since recruiters give a portfolio well under a minute total.
+	// A spray can paints the logo onto a dark window, then the window slides up
+	// to reveal the page. Kept short since recruiters give a portfolio well
+	// under a minute total.
 	const DURATION = 3.4;
 	const INTRO_END = 0.45;
 	const PAINT_END = DURATION - 0.95;
@@ -245,10 +245,10 @@
 				></div>
 				<img
 					bind:this={logoEl}
-					src="/logo.jpg"
+					src="/logo.png"
 					alt=""
 					class="absolute inset-0 h-full w-full object-contain"
-					style="mix-blend-mode:screen; -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-size:100% 100%; mask-size:100% 100%; -webkit-mask-image:linear-gradient(100deg, #000 -6%, rgba(0,0,0,0) 1%); mask-image:linear-gradient(100deg, #000 -6%, rgba(0,0,0,0) 1%);"
+					style="-webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-size:100% 100%; mask-size:100% 100%; -webkit-mask-image:linear-gradient(100deg, #000 -6%, rgba(0,0,0,0) 1%); mask-image:linear-gradient(100deg, #000 -6%, rgba(0,0,0,0) 1%);"
 				/>
 			</div>
 		</div>

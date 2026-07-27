@@ -15,14 +15,29 @@
 	<title>Ege Yesilyurt · Software Engineer</title>
 	<meta
 		name="description"
-		content="Software engineering student at York University. Builder of z9bra, a daily logic-puzzle game with 500+ players, and the open-source constraint-solver engine behind it."
+		content="4th-year Software Engineering student at York University in Toronto. I build and ship full-stack products."
 	/>
+
+	<!-- Link previews: og:image must be absolute, so it is hardcoded to the live domain -->
 	<meta property="og:title" content="Ege Yesilyurt · Software Engineer" />
 	<meta
 		property="og:description"
-		content="Full-stack projects: z9bra daily puzzle game, CP-SAT puzzle generator, and more."
+		content="4th-year Software Engineering student at York University. I build and ship full-stack products. Check out my website!"
 	/>
 	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://egeyesilyurt.ca/" />
+	<meta property="og:site_name" content="Ege Yesilyurt" />
+	<meta property="og:image" content="https://egeyesilyurt.ca/og.png" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta property="og:image:alt" content="Ege Yesilyurt, full-stack developer in Toronto" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Ege Yesilyurt · Software Engineer" />
+	<meta
+		name="twitter:description"
+		content="4th-year Software Engineering student at York University. I build and ship full-stack products. Check out my website!"
+	/>
+	<meta name="twitter:image" content="https://egeyesilyurt.ca/og.png" />
 </svelte:head>
 
 <div id="top">
