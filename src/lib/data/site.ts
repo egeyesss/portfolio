@@ -87,7 +87,7 @@ export const projects: Project[] = [
 		],
 		tech: ['Python', 'FastAPI', 'Next.js', 'PostgreSQL', 'Docker', 'GitHub Actions'],
 		links: [
-			{ label: 'Live', href: 'https://bundespredict.vercel.app' },
+			{ label: 'Live', href: 'https://bundespredict.egeyesilyurt.ca' },
 			{ label: 'Source', href: 'https://github.com/egeyesss/BundesPredict' }
 		],
 		year: '2026',
@@ -106,7 +106,7 @@ export const projects: Project[] = [
 		],
 		tech: ['Next.js', 'React Three Fiber', 'TypeScript', 'Django', 'Celery', 'PostgreSQL'],
 		links: [
-			{ label: 'Live', href: 'https://spocity-smoky.vercel.app' },
+			{ label: 'Live', href: 'https://spocity.egeyesilyurt.ca' },
 			{ label: 'Source', href: 'https://github.com/egeyesss/spocity' }
 		],
 		year: '2026',
