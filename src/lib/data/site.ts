@@ -127,6 +127,25 @@ export const projects: Project[] = [
 		imageAlt: 'BundesPredict showing baseline vs adjusted odds with audited adjustment chips'
 	},
 	{
+		name: 'Spocity',
+		tagline: 'Your Spotify history as a 3D voxel city, live',
+		ownership:
+			'Offloaded Spotify history ingest to Celery background jobs so the OAuth flow stayed instant while heavy pulls ran out of the request path.',
+		highlights: [
+			'Spotify OAuth with on-demand history ingest via Django + Celery jobs.',
+			'Genre rollup turns your artists into districts of a 3D voxel city in React Three Fiber.',
+			'Shareable public profiles and a postcard generator; deployed on Vercel + Railway.'
+		],
+		tech: ['Next.js', 'React Three Fiber', 'TypeScript', 'Django', 'Celery', 'PostgreSQL'],
+		links: [
+			{ label: 'Live', href: 'https://spocity.egeyesilyurt.ca' },
+			{ label: 'Source', href: 'https://github.com/egeyesss/spocity' }
+		],
+		year: '2026',
+		image: '/projects/spocity.jpg',
+		imageAlt: 'Spocity landing page with a 3D voxel city built from listening history'
+	},
+	{
 		name: 'FITIVA',
 		tagline: 'Workout training planner web app',
 		ownership:
