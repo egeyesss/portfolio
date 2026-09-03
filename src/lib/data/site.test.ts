@@ -34,11 +34,21 @@ describe('site data', () => {
 		}
 	});
 
-	it('references only images that exist in static/', () => {
+	it('references only images and videos that exist in static/', () => {
 		for (const project of allProjects) {
-			if (project.image) {
-				expect(existsSync(join(process.cwd(), 'static', project.image)), project.image).toBe(true);
+			for (const asset of [project.image, project.video]) {
+				if (asset) {
+					expect(existsSync(join(process.cwd(), 'static', asset)), asset).toBe(true);
+				}
 			}
+		}
+	});
+
+	// The clip renders in place of the image and uses it as the poster, so a
+	// video without one would flash empty before the first frame decodes.
+	it('gives every video a poster image', () => {
+		for (const project of allProjects.filter((p) => p.video)) {
+			expect(project.image, project.name).toBeTruthy();
 		}
 	});
 

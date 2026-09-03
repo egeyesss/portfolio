@@ -3,19 +3,51 @@
 	import { reveal } from '$lib/actions/reveal';
 
 	let { project, badge, delay = 0 }: { project: Project; badge: string; delay?: number } = $props();
+
+	let clip: HTMLVideoElement | undefined = $state();
+
+	$effect(() => {
+		if (!clip) return;
+		// Reduced-motion visitors keep the poster frame, which is the clip's own frame 0.
+		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+		const el = clip;
+		// A loop that runs while the card is scrolled away is battery for nothing.
+		const observer = new IntersectionObserver(([entry]) => {
+			if (entry.isIntersecting) el.play().catch(() => {});
+			else el.pause();
+		});
+		observer.observe(el);
+		return () => observer.disconnect();
+	});
 </script>
 
 <article
 	use:reveal={{ delay }}
 	class="group flex h-full flex-col overflow-hidden rounded-xl border border-edge bg-panel transition-colors hover:border-volt/50"
 >
-	{#if project.image}
+	{#if project.video || project.image}
 		<a href={project.links[0].href} target="_blank" rel="noopener" class="block overflow-hidden">
-			<img
-				src={project.image}
-				alt={project.imageAlt ?? project.name}
-				class="aspect-16/10 w-full border-b border-edge object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-			/>
+			{#if project.video}
+				<video
+					bind:this={clip}
+					poster={project.image}
+					aria-label={project.imageAlt ?? project.name}
+					muted
+					loop
+					playsinline
+					preload="metadata"
+					class="aspect-16/10 w-full border-b border-edge object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+				>
+					<source src={project.video} type="video/mp4" />
+				</video>
+			{:else}
+				<img
+					src={project.image}
+					alt={project.imageAlt ?? project.name}
+					class="aspect-16/10 w-full border-b border-edge object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+				/>
+			{/if}
 		</a>
 	{/if}
 

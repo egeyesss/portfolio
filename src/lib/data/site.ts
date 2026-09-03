@@ -14,6 +14,8 @@ export interface Project {
 	year: string;
 	image?: string;
 	imageAlt?: string;
+	/** Looping demo clip. Renders in place of `image`, which becomes its poster. */
+	video?: string;
 }
 
 /**
@@ -35,7 +37,8 @@ export const featured: Project[] = [
 		links: [{ label: 'Source', href: 'https://github.com/egeyesss/overterm' }],
 		year: '2026',
 		image: '/projects/overterm.jpg',
-		imageAlt: 'OverTerm floating above a full-screen video with a finished Claude Code answer'
+		imageAlt: 'OverTerm floating above a full-screen video with a finished Claude Code answer',
+		video: '/projects/overterm-demo.mp4'
 	},
 	{
 		name: 'z9bra',
