@@ -8,8 +8,14 @@ import { contact, featured, playlist, projects, skillGroups } from './site';
 describe('site data', () => {
 	const allProjects = [...featured, ...projects];
 
-	it('has exactly two featured projects (z9bra + the engine)', () => {
+	it('has exactly two featured projects (OverTerm + z9bra)', () => {
 		expect(featured).toHaveLength(2);
+	});
+
+	// The rail scrolls one offset across repeated copies of this list; a copy
+	// narrower than the viewport would run out of track between wraps.
+	it('has enough carousel projects for the rail to loop', () => {
+		expect(projects.length).toBeGreaterThanOrEqual(3);
 	});
 
 	it.each(allProjects)('$name has complete content', (project) => {

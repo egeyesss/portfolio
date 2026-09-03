@@ -4,7 +4,7 @@
 	import Hero from '$lib/components/Hero.svelte';
 	import SectionHeading from '$lib/components/SectionHeading.svelte';
 	import FeaturedProject from '$lib/components/FeaturedProject.svelte';
-	import ProjectCard from '$lib/components/ProjectCard.svelte';
+	import ProjectCarousel from '$lib/components/ProjectCarousel.svelte';
 	import Skills from '$lib/components/Skills.svelte';
 	import MusicWidget from '$lib/components/MusicWidget.svelte';
 	import Contact from '$lib/components/Contact.svelte';
@@ -49,16 +49,12 @@
 		<section id="projects" class="mx-auto max-w-6xl scroll-mt-20 px-4 py-24 sm:px-6">
 			<SectionHeading title="Projects" />
 
-			<div class="space-y-8">
-				<FeaturedProject project={featured[0]} badge="Featured · Live" />
-				<FeaturedProject project={featured[1]} badge="Featured · Open source" />
+			<div class="grid gap-6 lg:grid-cols-2">
+				<FeaturedProject project={featured[0]} badge="Featured · Open source" />
+				<FeaturedProject project={featured[1]} badge="Featured · Live" delay={0.1} />
 			</div>
 
-			<div class="mt-8 grid gap-6 lg:grid-cols-3">
-				{#each projects as project, i (project.name)}
-					<ProjectCard {project} delay={i * 0.1} />
-				{/each}
-			</div>
+			<ProjectCarousel {projects} />
 
 			<div class="mt-10 text-center">
 				<a

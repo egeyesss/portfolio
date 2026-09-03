@@ -1,13 +1,11 @@
 <script lang="ts">
 	import type { Project } from '$lib/data/site';
-	import { reveal } from '$lib/actions/reveal';
 
-	let { project, delay = 0 }: { project: Project; delay?: number } = $props();
+	let { project }: { project: Project } = $props();
 </script>
 
 <article
-	use:reveal={{ delay }}
-	class="group flex flex-col overflow-hidden rounded-xl border border-edge bg-panel transition-colors hover:border-volt/50"
+	class="group flex h-full flex-col overflow-hidden rounded-xl border border-edge bg-panel transition-colors hover:border-volt/50"
 >
 	{#if project.image}
 		<a href={project.links[0].href} target="_blank" rel="noopener" class="block overflow-hidden">
