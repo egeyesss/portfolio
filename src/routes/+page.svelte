@@ -15,14 +15,14 @@
 	<title>Ege Yesilyurt · Software Engineer</title>
 	<meta
 		name="description"
-		content="4th-year Software Engineering student at York University in Toronto. I build and ship full-stack products."
+		content="Software Engineering student at York University in Toronto. I build and ship full-stack products."
 	/>
 
 	<!-- Link previews: og:image must be absolute, so it is hardcoded to the live domain -->
 	<meta property="og:title" content="Ege Yesilyurt · Software Engineer" />
 	<meta
 		property="og:description"
-		content="4th-year Software Engineering student at York University. I build and ship full-stack products. Check out my website!"
+		content="Software Engineering student at York University. I build and ship full-stack products. Check out my website!"
 	/>
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://egeyesilyurt.ca/" />
@@ -35,7 +35,7 @@
 	<meta name="twitter:title" content="Ege Yesilyurt · Software Engineer" />
 	<meta
 		name="twitter:description"
-		content="4th-year Software Engineering student at York University. I build and ship full-stack products. Check out my website!"
+		content="Software Engineering student at York University. I build and ship full-stack products. Check out my website!"
 	/>
 	<meta name="twitter:image" content="https://egeyesilyurt.ca/og.png" />
 </svelte:head>

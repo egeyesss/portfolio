@@ -1,4 +1,4 @@
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { contact, featured, playlist, projects, skillGroups } from './site';
@@ -62,6 +62,52 @@ describe('site data', () => {
 		for (const group of skillGroups) {
 			expect(group.items.length).toBeGreaterThan(0);
 		}
+	});
+});
+
+// Recruiters read the site next to the resume and the public repos, so any
+// number or label here has to match both.
+describe('copy consistency', () => {
+	const allProjects = [...featured, ...projects];
+	const projectText = (p: (typeof allProjects)[number]) =>
+		[p.tagline, p.ownership ?? '', ...p.highlights].join(' ');
+	const pageSources = ['src/lib/components/Hero.svelte', 'src/routes/+page.svelte'].map((file) =>
+		readFileSync(join(process.cwd(), file), 'utf8')
+	);
+	const everything = [...allProjects.map(projectText), ...pageSources].join('\n');
+
+	// Suite sizes are mostly AI-generated, so they only appear where the tests
+	// were a shared bar for a team: Deximon.
+	it('cites a test-suite size only for Deximon', () => {
+		for (const project of allProjects.filter((p) => p.name !== 'Deximon')) {
+			expect(projectText(project), project.name).not.toMatch(/\d+\+?\s+(\w+\s+){0,2}tests\b/i);
+		}
+	});
+
+	it('never labels a class year', () => {
+		expect(everything).not.toMatch(
+			/\b(\d(st|nd|rd|th)|first|second|third|fourth|fifth)[- ]year\b/i
+		);
+	});
+
+	// 200+ is the number on the resume.
+	it('quotes one z9bra player count everywhere, matching the resume', () => {
+		const counts = new Set(
+			[...everything.matchAll(/(\d+)\+\s+(unique\s+)?players/g)].map((m) => m[1])
+		);
+		expect([...counts]).toEqual(['200']);
+	});
+
+	// Checked against the Deximon repo: #15, #17, #18 and #19 are Ege's own PRs,
+	// so the reviewed range #11 to #22 holds 8 teammate PRs, not 12.
+	it('uses the repo-verified Deximon numbers', () => {
+		const deximon = projectText(allProjects.find((p) => p.name === 'Deximon')!);
+		expect(deximon).toContain('8 teammate pull requests');
+		expect(deximon).toContain('66 of 140 commits');
+	});
+
+	it('lists the domain email address', () => {
+		expect(contact.email).toBe('contact@egeyesilyurt.ca');
 	});
 });
 
