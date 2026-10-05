@@ -1,14 +1,10 @@
 <script lang="ts">
 	import { entrance } from '$lib/state/entrance.svelte';
+	import { DURATION, END, INTRO_END, PAINT_END, SLIDE_START } from '$lib/entrance-timing';
 
 	// A spray can paints the logo onto a dark window, then the window slides up
 	// to reveal the page. Kept short since recruiters give a portfolio well
 	// under a minute total.
-	const DURATION = 3.4;
-	const INTRO_END = 0.45;
-	const PAINT_END = DURATION - 0.95;
-	const SLIDE_START = DURATION - 0.45;
-	const END = DURATION + 0.15;
 	// Peak gain of the spray hiss (~60% as requested).
 	const SPRAY_VOLUME = 0.6;
 

@@ -2,6 +2,10 @@
 
 Personal portfolio site. Single-page, cyberpunk-styled (volt yellow on matte black), fully static.
 
+**Live:** [egeyesilyurt.ca](https://egeyesilyurt.ca)
+
+![Landing page](docs/landing.jpg)
+
 **Stack:** SvelteKit (Svelte 5) · TypeScript · Tailwind CSS v4 · GSAP · Vercel
 
 ## Structure

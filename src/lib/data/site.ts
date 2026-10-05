@@ -30,7 +30,7 @@ export const featured: Project[] = [
 			'Determined agent state from a vt100 screen model of the pseudoterminal instead of the raw byte stream, so it works with any CLI tool rather than one parser per agent.',
 		highlights: [
 			'Native Rust + Tauri v2 terminal that shrinks to a status bar while an AI coding agent works and expands when it needs you.',
-			'Reads exact turn events out of Claude Code hooks as OSC markers; 177 tests, MIT licensed.',
+			'Reads exact turn events out of Claude Code hooks as OSC markers, with all agent-state logic in a Rust core built through TDD.',
 			'One-command install behind a tag-triggered GitHub Actions pipeline that verifies every artifact and auto-bumps the Homebrew cask.'
 		],
 		tech: ['Rust', 'Tauri v2', 'TypeScript', 'xterm.js', 'vt100', 'objc2', 'GitHub Actions'],
@@ -46,7 +46,7 @@ export const featured: Project[] = [
 		ownership:
 			'It runs on a commit-based solver that scores the guesses you lock in as you go, so the game rewards real reasoning over a lucky final grid.',
 		highlights: [
-			'Wordle-style daily puzzle with 500+ unique players, all solving the same date-seeded grid.',
+			'Wordle-style daily puzzle with 200+ unique players, all solving the same date-seeded grid.',
 			'Commit-based solving engine with overwrite scoring and server-rendered share cards.',
 			'Optional account sync for cross-device streaks; automated deploys on Vercel.'
 		],
@@ -71,9 +71,9 @@ export const projects: Project[] = [
 		name: 'Deximon',
 		tagline: 'Pokémon TCG collector platform, 6-person team',
 		ownership:
-			'Reviewed 12 teammate pull requests with written scores and follow-up fixes, catching a WebSocket handler that crashed on dead sockets and an N+1 query on the marketplace feed.',
+			'Reviewed 8 teammate pull requests with written scores and follow-up fixes, catching a WebSocket handler that crashed on dead sockets and an N+1 query on the marketplace feed.',
 		highlights: [
-			'Largest contributor on a 6-person team (58 of 109 commits) across the digital binder, card-recognition scanner, and listing-scoped marketplace.',
+			'Largest contributor on a 6-person team (66 of 140 commits) across the digital binder, card-recognition scanner, and listing-scoped marketplace.',
 			'Built binder persistence end to end across a Docker Compose monorepo: Next.js web, FastAPI backend, and a FastAPI scanner service on AWS Rekognition.',
 			'80+ backend tests covering auth, listings, and the scanner pipeline.'
 		],
@@ -136,7 +136,7 @@ export const projects: Project[] = [
 			'Offloaded Spotify history ingest to Celery background jobs so the OAuth flow stayed instant while heavy pulls ran out of the request path.',
 		highlights: [
 			'Spotify OAuth with on-demand history ingest via Django + Celery jobs.',
-			'Genre rollup turns your artists into districts of a 3D voxel city in React Three Fiber.',
+			'Genre rollup turns your artists into districts of a 3D voxel city in React Three Fiber, scored by a test-first ranking engine.',
 			'Shareable public profiles and a postcard generator; deployed on Vercel + Railway.'
 		],
 		tech: ['Next.js', 'React Three Fiber', 'TypeScript', 'Django', 'Celery', 'PostgreSQL'],
@@ -152,11 +152,11 @@ export const projects: Project[] = [
 		name: 'FITIVA',
 		tagline: 'Workout training planner web app',
 		ownership:
-			'Led the 6-person team and pushed for a repository-pattern data layer so the backend stayed testable under a tight deadline, backed by 40+ Django unit tests.',
+			'Led the 6-person team and pushed for a repository-pattern data layer so the backend stayed testable under a tight deadline.',
 		highlights: [
-			'Project lead for a 6-person team, running sprint planning and delegation in Jira.',
+			'Project lead for a 6-person agile team, running sprint planning and delegation in Jira.',
 			'User/trainer auth, fitness profiles, program scheduling, and workout recommendations.',
-			'Repository-pattern data layer, 40+ Django unit tests, fully containerized.'
+			'Repository-pattern data layer covered by Django unit tests, fully containerized.'
 		],
 		tech: ['Next.js', 'TypeScript', 'Django REST', 'MySQL', 'Docker'],
 		links: [{ label: 'Source', href: 'https://github.com/hvpham-yorku/group2-fitiva' }],
@@ -212,7 +212,7 @@ export const playlist: Track[] = [
 ];
 
 export const contact = {
-	email: 'egeyesilyurtca@gmail.com',
+	email: 'contact@egeyesilyurt.ca',
 	github: 'https://github.com/egeyesss',
 	linkedin: 'https://linkedin.com/in/egeyesss'
 };

@@ -30,19 +30,19 @@
 				Ege <span class="text-volt">Yesilyurt</span>
 			</h1>
 
-			<p data-hero-line class="mt-4 mb-4 font-display text-sm tracking-[0.2em] text-dim uppercase">
+			<p data-hero-line class="mt-4 font-display text-sm tracking-[0.2em] text-dim uppercase">
 				Full-Stack Developer · 📍 Toronto
 			</p>
 
-			<p data-hero-line class="mx-auto mt-6 max-w-xl text-base text-dim sm:text-lg md:mx-0">
-				4th-year Software Engineering student at York University. I build and ship full-stack
-				products, most recently a daily puzzle game with
-				<span class="font-semibold text-fog">500+ players</span>.
+			<p data-hero-line class="mt-3 font-display text-sm text-fog">
+				<span class="whitespace-nowrap">B.Eng., Spec. Hons. Software Engineering</span> ·
+				<span class="whitespace-nowrap">Expected late 2027</span>
 			</p>
 
-			<p data-hero-line class="mx-auto mt-4 max-w-xl text-sm text-dim sm:text-base md:mx-0">
-				Outside of coding: I like traveling, backpacking, or playing sports like soccer, badminton,
-				or bouldering. I love hiking and being in the nature. I also like gaming with friends.
+			<p data-hero-line class="mx-auto mt-6 max-w-xl text-base text-dim sm:text-lg md:mx-0">
+				Software Engineering student at York University. I build and ship full-stack products, most
+				recently a daily puzzle game with
+				<span class="font-semibold text-fog">200+ players</span>.
 			</p>
 
 			<div class="mt-10 flex flex-wrap items-center justify-center gap-4 md:justify-start">
@@ -64,10 +64,15 @@
 				</a>
 			</div>
 
+			<p data-hero-cta class="mx-auto mt-8 max-w-xl text-sm text-dim sm:text-base md:mx-0">
+				Outside of coding: I like traveling, backpacking, or playing sports like soccer, badminton,
+				or bouldering. I love hiking and being in nature. I also like gaming with friends.
+			</p>
+
 			<!-- everything a recruiter needs, no scrolling required -->
 			<div
 				data-hero-cta
-				class="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-display text-sm text-dim md:justify-start"
+				class="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-display text-sm text-dim md:justify-start"
 			>
 				<a
 					href={contact.github}

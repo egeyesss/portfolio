@@ -25,7 +25,8 @@
 	let controller: EmbedController | null = null;
 	let current = $state(0);
 	let isPaused = $state(true);
-	let open = $state(true);
+	// Starts as a slim bar so it never covers the hero photo on phones.
+	let open = $state(false);
 	let advancing = false;
 
 	const uri = (i: number) => `spotify:track:${playlist[i].spotifyId}`;
@@ -84,44 +85,53 @@
 </script>
 
 <div
-	class="fixed right-4 bottom-4 z-40 w-[300px] max-w-[calc(100vw-2rem)] transition-opacity duration-500 {entrance.done
-		? 'opacity-100'
-		: 'pointer-events-none opacity-0'}"
+	class="fixed right-4 bottom-4 z-40 max-w-[calc(100vw-2rem)] transition-opacity duration-500 {open
+		? 'w-[300px]'
+		: 'w-max'} {entrance.done ? 'opacity-100' : 'pointer-events-none opacity-0'}"
 >
 	<div class="overflow-hidden rounded-xl border border-edge bg-panel shadow-2xl shadow-black/60">
-		<!-- Header: label + minimize toggle -->
-		<div class="flex items-center justify-between gap-2 px-3 py-2">
-			<span
-				class="flex items-center gap-2 font-display text-xs tracking-[0.2em] text-dim uppercase"
-			>
-				{#if !isPaused}
-					<span class="h-1.5 w-1.5 rounded-full bg-volt" aria-hidden="true"></span>
-				{/if}
-				some favourites
-			</span>
-			<button
-				onclick={() => (open = !open)}
-				aria-label={open ? 'Minimize player' : 'Expand player'}
-				aria-expanded={open}
-				class="text-dim transition-colors hover:text-fog"
-			>
+		<button
+			onclick={() => (open = !open)}
+			aria-expanded={open}
+			class="flex w-full items-center justify-between gap-3 px-3 py-2 text-dim transition-colors hover:text-fog"
+		>
+			<span class="flex items-center gap-2 font-display text-xs tracking-[0.2em] uppercase">
 				<svg
-					class="h-4 w-4 transition-transform duration-300 {open ? '' : 'rotate-180'}"
+					class="h-3.5 w-3.5 text-volt"
 					viewBox="0 0 24 24"
 					fill="none"
 					stroke="currentColor"
 					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
 					aria-hidden="true"
 				>
-					<path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+					<path d="M9 18V5l12-2v13" />
+					<circle cx="6" cy="18" r="3" />
+					<circle cx="18" cy="16" r="3" />
 				</svg>
-			</button>
-		</div>
+				some favourites
+				{#if !isPaused}
+					<span class="h-1.5 w-1.5 rounded-full bg-volt" aria-hidden="true"></span>
+				{/if}
+			</span>
+			<svg
+				class="h-4 w-4 transition-transform duration-300 {open ? '' : 'rotate-180'}"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				aria-hidden="true"
+			>
+				<path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+			</svg>
+		</button>
 
-		<!-- Body collapses via max-height so the embed stays mounted and keeps playing -->
+		<!-- Body collapses to zero size so the embed stays mounted and keeps playing -->
 		<div
 			class="overflow-hidden transition-all duration-300"
 			style:max-height={open ? '200px' : '0px'}
+			style:width={open ? 'auto' : '0px'}
 			style:opacity={open ? '1' : '0'}
 		>
 			<div class="px-3 pb-3">
