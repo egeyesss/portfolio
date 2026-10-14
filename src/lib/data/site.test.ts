@@ -90,12 +90,19 @@ describe('copy consistency', () => {
 		);
 	});
 
-	// 200+ is the number on the resume.
+	// "Late 2027" read as ambiguous to resume reviewers, so the site uses the
+	// resume's exact month.
+	it('gives the same graduation date as the resume', () => {
+		expect(everything).toContain('Expected Dec. 2027');
+		expect(everything).not.toMatch(/late 2027/i);
+	});
+
+	// 500+ is the number on the resume (player count as of 2026-09-01).
 	it('quotes one z9bra player count everywhere, matching the resume', () => {
 		const counts = new Set(
 			[...everything.matchAll(/(\d+)\+\s+(unique\s+)?players/g)].map((m) => m[1])
 		);
-		expect([...counts]).toEqual(['200']);
+		expect([...counts]).toEqual(['500']);
 	});
 
 	// Checked against the Deximon repo: #15, #17, #18 and #19 are Ege's own PRs,

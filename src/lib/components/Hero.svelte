@@ -36,13 +36,13 @@
 
 			<p data-hero-line class="mt-3 font-display text-sm text-fog">
 				<span class="whitespace-nowrap">B.Eng., Spec. Hons. Software Engineering</span> ·
-				<span class="whitespace-nowrap">Expected late 2027</span>
+				<span class="whitespace-nowrap">Expected Dec. 2027</span>
 			</p>
 
 			<p data-hero-line class="mx-auto mt-6 max-w-xl text-base text-dim sm:text-lg md:mx-0">
 				Software Engineering student at York University. I build and ship full-stack products, most
 				recently a daily puzzle game with
-				<span class="font-semibold text-fog">200+ players</span>.
+				<span class="font-semibold text-fog">500+ players</span>.
 			</p>
 
 			<div class="mt-10 flex flex-wrap items-center justify-center gap-4 md:justify-start">
