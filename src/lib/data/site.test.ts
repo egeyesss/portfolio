@@ -97,12 +97,13 @@ describe('copy consistency', () => {
 		expect(everything).not.toMatch(/late 2027/i);
 	});
 
-	// 500+ is the number on the resume (player count as of 2026-09-01).
+	// 200+ is the number on the resume. An older vault note said 500+, which
+	// was wrong and briefly shipped here.
 	it('quotes one z9bra player count everywhere, matching the resume', () => {
 		const counts = new Set(
 			[...everything.matchAll(/(\d+)\+\s+(unique\s+)?players/g)].map((m) => m[1])
 		);
-		expect([...counts]).toEqual(['500']);
+		expect([...counts]).toEqual(['200']);
 	});
 
 	// Checked against the Deximon repo: #15, #17, #18 and #19 are Ege's own PRs,

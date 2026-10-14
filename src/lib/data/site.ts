@@ -46,7 +46,7 @@ export const featured: Project[] = [
 		ownership:
 			'It runs on a commit-based solver that scores the guesses you lock in as you go, so the game rewards real reasoning over a lucky final grid.',
 		highlights: [
-			'Wordle-style daily puzzle with 500+ unique players, all solving the same date-seeded grid.',
+			'Wordle-style daily puzzle with 200+ unique players, all solving the same date-seeded grid.',
 			'Commit-based solving engine with overwrite scoring and server-rendered share cards.',
 			'Optional account sync for cross-device streaks; automated deploys on Vercel.'
 		],
