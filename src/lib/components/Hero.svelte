@@ -36,7 +36,7 @@
 
 			<p data-hero-line class="mt-3 font-display text-sm text-fog">
 				<span class="whitespace-nowrap">B.Eng., Spec. Hons. Software Engineering</span> ·
-				<span class="whitespace-nowrap">Expected Dec. 2027</span>
+				<span class="whitespace-nowrap">Expected Jan. 2028</span>
 			</p>
 
 			<p data-hero-line class="mx-auto mt-6 max-w-xl text-base text-dim sm:text-lg md:mx-0">

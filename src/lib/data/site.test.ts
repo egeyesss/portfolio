@@ -93,7 +93,7 @@ describe('copy consistency', () => {
 	// "Late 2027" read as ambiguous to resume reviewers, so the site uses the
 	// resume's exact month.
 	it('gives the same graduation date as the resume', () => {
-		expect(everything).toContain('Expected Dec. 2027');
+		expect(everything).toContain('Expected Jan. 2028');
 		expect(everything).not.toMatch(/late 2027/i);
 	});
 
