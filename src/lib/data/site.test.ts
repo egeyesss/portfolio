@@ -1,15 +1,18 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { contact, featured, playlist, projects, skillGroups } from './site';
+import { contact, featured, lead, playlist, projects, skillGroups } from './site';
 
 // The site renders straight from this data, so a bad entry (empty field,
 // http:// link, typo'd href) would ship silently. These tests catch that.
 describe('site data', () => {
-	const allProjects = [...featured, ...projects];
+	const allProjects = [lead, ...featured, ...projects];
 
-	it('has exactly two featured projects (OverTerm + z9bra)', () => {
-		expect(featured).toHaveLength(2);
+	// BundesPredict is the only project with paying users and the widest scope,
+	// so it sits full width above the featured pair.
+	it('leads with BundesPredict above the OverTerm + z9bra pair', () => {
+		expect(lead.name).toBe('BundesPredict');
+		expect(featured.map((p) => p.name)).toEqual(['OverTerm', 'z9bra']);
 	});
 
 	// The rail scrolls one offset across repeated copies of this list; a copy
@@ -68,7 +71,7 @@ describe('site data', () => {
 // Recruiters read the site next to the resume and the public repos, so any
 // number or label here has to match both.
 describe('copy consistency', () => {
-	const allProjects = [...featured, ...projects];
+	const allProjects = [lead, ...featured, ...projects];
 	const projectText = (p: (typeof allProjects)[number]) =>
 		[p.tagline, p.ownership ?? '', ...p.highlights].join(' ');
 	const pageSources = ['src/lib/components/Hero.svelte', 'src/routes/+page.svelte'].map((file) =>
@@ -112,6 +115,18 @@ describe('copy consistency', () => {
 		const deximon = projectText(allProjects.find((p) => p.name === 'Deximon')!);
 		expect(deximon).toContain('8 teammate pull requests');
 		expect(deximon).toContain('66 of 140 commits');
+	});
+
+	it('presents BundesPredict as a subscription product, in the hero too', () => {
+		expect(projectText(lead)).toMatch(/paying subscribers/);
+		expect(pageSources[0]).toMatch(/paying subscribers/);
+	});
+
+	// PR #38 removed FastAPI from BundesPredict; the backend is Django REST only.
+	it('lists the post-rewrite BundesPredict stack', () => {
+		expect(lead.tech).toContain('Django REST Framework');
+		expect(lead.tech).toContain('Stripe');
+		expect(lead.tech).not.toContain('FastAPI');
 	});
 
 	it('lists the domain email address', () => {

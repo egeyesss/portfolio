@@ -2,7 +2,12 @@
 	import type { Project } from '$lib/data/site';
 	import { reveal } from '$lib/actions/reveal';
 
-	let { project, badge, delay = 0 }: { project: Project; badge: string; delay?: number } = $props();
+	let {
+		project,
+		badge,
+		delay = 0,
+		wide = false
+	}: { project: Project; badge: string; delay?: number; wide?: boolean } = $props();
 
 	let clip: HTMLVideoElement | undefined = $state();
 
@@ -24,10 +29,18 @@
 
 <article
 	use:reveal={{ delay }}
-	class="group flex h-full flex-col overflow-hidden rounded-xl border border-edge bg-panel transition-colors hover:border-volt/50"
+	class={[
+		'group flex h-full flex-col overflow-hidden rounded-xl border border-edge bg-panel transition-colors hover:border-volt/50',
+		wide && 'lg:grid lg:grid-cols-[1.15fr_1fr]'
+	]}
 >
 	{#if project.video || project.image}
-		<a href={project.links[0].href} target="_blank" rel="noopener" class="block overflow-hidden">
+		<a
+			href={project.links[0].href}
+			target="_blank"
+			rel="noopener"
+			class={['block overflow-hidden', wide && 'lg:border-r lg:border-edge']}
+		>
 			{#if project.video}
 				<video
 					bind:this={clip}
@@ -45,7 +58,10 @@
 				<img
 					src={project.image}
 					alt={project.imageAlt ?? project.name}
-					class="aspect-16/10 w-full border-b border-edge object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+					class={[
+						'aspect-16/10 w-full border-b border-edge object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]',
+						wide && 'lg:aspect-auto lg:h-full lg:border-b-0'
+					]}
 				/>
 			{/if}
 		</a>

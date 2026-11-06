@@ -41,8 +41,9 @@
 
 			<p data-hero-line class="mx-auto mt-6 max-w-xl text-base text-dim sm:text-lg md:mx-0">
 				Software Engineering student at York University. I build and ship full-stack products, most
-				recently a daily puzzle game with
-				<span class="font-semibold text-fog">200+ players</span>.
+				recently a Bundesliga prediction site with
+				<span class="font-semibold text-fog">paying subscribers</span>, and before that a daily
+				puzzle game with <span class="font-semibold text-fog">200+ players</span>.
 			</p>
 
 			<div class="mt-10 flex flex-wrap items-center justify-center gap-4 md:justify-start">
