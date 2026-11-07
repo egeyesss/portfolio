@@ -8,7 +8,7 @@
 	import Skills from '$lib/components/Skills.svelte';
 	import MusicWidget from '$lib/components/MusicWidget.svelte';
 	import Contact from '$lib/components/Contact.svelte';
-	import { contact, featured, projects } from '$lib/data/site';
+	import { contact, featured, lead, projects } from '$lib/data/site';
 </script>
 
 <svelte:head>
@@ -48,6 +48,10 @@
 
 		<section id="projects" class="mx-auto max-w-6xl scroll-mt-20 px-4 py-24 sm:px-6">
 			<SectionHeading title="Projects" />
+
+			<div class="mb-6">
+				<FeaturedProject project={lead} badge="Flagship · Live product" wide />
+			</div>
 
 			<div class="grid gap-6 lg:grid-cols-2">
 				<FeaturedProject project={featured[0]} badge="Featured · Open source" />
