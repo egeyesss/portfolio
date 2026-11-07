@@ -19,44 +19,39 @@ export interface Project {
 }
 
 /**
- * Full-width card above the featured pair: the only project with paying
- * users, and the biggest one by scope (52 PRs, auth, billing, ops).
- */
-export const lead: Project = {
-	name: 'BundesPredict',
-	tagline: 'Bundesliga prediction site with paying subscribers',
-	ownership:
-		'Kept the Dixon–Coles model as the only thing that produces a probability. The LLM agent can only ask for an expected-goals change, and the server clamps each one to ±0.6.',
-	highlights: [
-		'Free and $5/month Pro plans on Stripe Checkout, with the plan read only from signed webhooks so a returning browser can never grant Pro on its own.',
-		'Hand-written Dixon–Coles model within 4% of closing bookmaker odds over 1,827 walk-forward backtested matches, refit daily by GitHub Actions.',
-		'Chat agent on the Anthropic API that streams each tool call over SSE while it checks your news against squad data and the weather forecast.',
-		'Google and email-code sign-in, daily chat quotas, a public track record scored after every match, a weekly matchday email, and an admin dashboard for MRR, churn and AI cost per subscriber.'
-	],
-	tech: [
-		'Python',
-		'Django REST Framework',
-		'Next.js',
-		'TypeScript',
-		'PostgreSQL',
-		'Stripe',
-		'Anthropic API',
-		'GitHub Actions'
-	],
-	links: [
-		{ label: 'Live', href: 'https://bundespredict.egeyesilyurt.ca' },
-		{ label: 'Source', href: 'https://github.com/egeyesss/BundesPredict' }
-	],
-	year: '2026',
-	image: '/projects/bundespredict.jpg',
-	imageAlt: 'BundesPredict matchday page with win, draw and loss odds for all nine fixtures'
-};
-
-/**
- * The pair under the lead card: the one with outside contributors, and the
- * one with the most players.
+ * The two projects that lead the section: the one with paying subscribers,
+ * and the one with outside contributors.
  */
 export const featured: Project[] = [
+	{
+		name: 'BundesPredict',
+		tagline: 'Bundesliga prediction site with paying subscribers',
+		ownership:
+			'Kept the Dixon–Coles model as the only thing that produces a probability. The LLM agent can only ask for an expected-goals change, and the server clamps each one to ±0.6.',
+		highlights: [
+			'Free and $5/month Pro plans on Stripe Checkout, with the plan read only from signed webhooks so a returning browser can never grant Pro on its own.',
+			'Hand-written Dixon–Coles model within 4% of closing bookmaker odds over 1,827 walk-forward backtested matches, refit daily by GitHub Actions.',
+			'Chat agent on the Anthropic API that streams each tool call over SSE while it checks your news against squad data and the weather forecast.',
+			'Google and email-code sign-in, daily chat quotas, a public track record scored after every match, a weekly matchday email, and an admin dashboard for MRR, churn and AI cost per subscriber.'
+		],
+		tech: [
+			'Python',
+			'Django REST Framework',
+			'Next.js',
+			'TypeScript',
+			'PostgreSQL',
+			'Stripe',
+			'Anthropic API',
+			'GitHub Actions'
+		],
+		links: [
+			{ label: 'Live', href: 'https://bundespredict.egeyesilyurt.ca' },
+			{ label: 'Source', href: 'https://github.com/egeyesss/BundesPredict' }
+		],
+		year: '2026',
+		image: '/projects/bundespredict.jpg',
+		imageAlt: 'BundesPredict matchday page with win, draw and loss odds for all nine fixtures'
+	},
 	{
 		name: 'OverTerm',
 		tagline: 'Agent-aware floating terminal for macOS',
@@ -73,7 +68,15 @@ export const featured: Project[] = [
 		image: '/projects/overterm.jpg',
 		imageAlt: 'OverTerm floating above a full-screen video with a finished Claude Code answer',
 		video: '/projects/overterm-demo.mp4'
-	},
+	}
+];
+
+/**
+ * The looping rail under the featured pair. Needs at least three entries: the
+ * rail scrolls one offset across repeated copies of this list, and a copy has
+ * to be wider than the viewport for a step to stay on track between wraps.
+ */
+export const projects: Project[] = [
 	{
 		name: 'z9bra',
 		tagline: 'Daily logic-puzzle game, live at zebra9.xyz',
@@ -92,15 +95,7 @@ export const featured: Project[] = [
 		year: '2026',
 		image: '/projects/z9bra.jpg',
 		imageAlt: 'z9bra landing page with the daily logic grid'
-	}
-];
-
-/**
- * The looping rail under the featured pair. Needs at least three entries: the
- * rail scrolls one offset across repeated copies of this list, and a copy has
- * to be wider than the viewport for a step to stay on track between wraps.
- */
-export const projects: Project[] = [
+	},
 	{
 		name: 'Deximon',
 		tagline: 'Pokémon TCG collector platform, 6-person team',
